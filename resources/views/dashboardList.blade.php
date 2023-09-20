@@ -6,7 +6,9 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
                 <div class="">
-                    <h5 class="card-header">Table Caption</h5>
+                    <h5 class="card-header"> <a href="{{url('csv-export')}}" class="btn  btn-primary sdbtn"
+                            style="float:right;">Export CSV</a> Table Caption</h5>
+
                     <div class="table-responsive text-nowrap">
                         <table class="table table-bordered">
                             <caption class="ms-4">
@@ -18,8 +20,8 @@
                                     <th>Name</th>
                                     <th>Batch</th>
                                     <th>Mobile Number</th>
-                                    <th>Blood Group</th>
-                                    <th>Address</th>
+
+
                                     <th>T-Shirt Size</th>
 
                                     <th>Guest</th>
@@ -34,15 +36,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($brotherhood as $row)
                                 <tr>
-                                    @foreach($brotherhood as $row)
+
                                     <td>{{$row->id+1110000}}</td>
                                     <td>{{$row->graduated_name}}</td>
                                     <td>{{$row->batch}}</td>
                                     <td>{{$row->mobile_number}}</td>
 
-                                    <td>{{$row->blood_group}}</td>
-                                    <td>{{$row->address}}</td>
+
                                     <td>{{$row->t_shirt}}</td>
 
 
@@ -64,13 +66,17 @@
                                                 <a class="dropdown-item"
                                                     href="{{route('dashboardList.edit',$row->id)}}"><i
                                                         class="fa-solid fa-person-circle-check me-1"></i> approved</a>
+                                                <a class="dropdown-item" href="{{route('pdf',$row->id)}}"><i
+                                                        class="fa-regular fa-file-pdf me-1"></i>PDF</a>
+
+
 
                                             </div>
                                         </div>
                                     </td>
-                                    @endforeach
-                                </tr>
 
+                                </tr>
+                                @endforeach
 
 
 

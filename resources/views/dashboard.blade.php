@@ -11,6 +11,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="card">
                         <h5 class="card-header">Table Caption</h5>
+                        <a href="{{route('dashboardList.exportCSV')}}" class="btn  btn-primary dbtn"
+                            style="float:right;">Center Create</a>
                         <div class="table-responsive text-nowrap">
                             <table class="table">
                                 <caption class="ms-4">

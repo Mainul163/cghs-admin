@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Dashboard;
+use App\Exports\DasboardExport;
+use CSV;
 class DashboardController extends Controller
 {
     /**
@@ -15,8 +18,8 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $brotherhood=DB::table('graduateds')->get();
-        
+        // $brotherhood=DB::table('graduateds')->get();
+        $brotherhood=Dashboard::all();
         return view('dashboardList',compact('brotherhood'));
     }
 
@@ -97,5 +100,13 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function exportCSV(){
+
+        return CSV::download(new DasboardExport,'user-record.csv');
+
+
     }
 }
