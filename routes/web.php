@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ExportController;
 use App\Http\Controllers\admin\PdfController;
+use App\Http\Controllers\admin\StatusController;
+/*
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,4 +28,5 @@ Route::get('/dashboar', function () {
 Route::resource('dashboardList', DashboardController::class)->middleware(['auth']);
 Route::get('csv-export',[ExportController::class,'exportCSV']);
 Route::get('/cghs/pdf/{id}', [App\Http\Controllers\admin\PdfController::class, 'export_pdf'])->name('pdf');
+Route::get('/status/{id}', [App\Http\Controllers\admin\StatusController::class, 'status'])->name('status');
 require __DIR__.'/auth.php';

@@ -61,10 +61,10 @@
                                                 <i class="bx bx-dots-vertical-rounded"></i>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="javascript:void(0);"><i
-                                                        class="bx bx-edit-alt me-1"></i> Edit</a>
                                                 <a class="dropdown-item"
                                                     href="{{route('dashboardList.edit',$row->id)}}"><i
+                                                        class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                <a class="dropdown-item" href="{{route('status',$row->id)}}"><i
                                                         class="fa-solid fa-person-circle-check me-1"></i> approved</a>
                                                 <a class="dropdown-item" href="{{route('pdf',$row->id)}}"><i
                                                         class="fa-regular fa-file-pdf me-1"></i>PDF</a>

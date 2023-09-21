@@ -65,18 +65,12 @@ class DashboardController extends Controller
     {
         //
        
-        $status='approved';
-        $data=array(
-            "status"=>$status,
-            
-            
-
-        );
 
 
-        DB::table('graduateds')->where('id',$id)->update($data);
 
-        return redirect()->back();
+        $editData = DB::table('graduateds')->where('id',$id)->first();;
+
+        return view('edit')->with(compact('editData'));
     }
 
     /**
@@ -89,6 +83,31 @@ class DashboardController extends Controller
     public function update(Request $request, $id)
     {
         //
+       
+        $total=($request->guest*700)+1020;
+
+        $data=array(
+           
+            "graduated_name"=>$request->graduated_name,
+            "batch"=>$request->batch ,
+           
+            "mobile_number"=>$request->mobile_number,
+            "blood_group"=>$request->blood_group,
+            "batch"=>$request->batch ,
+            "t_shirt"=>$request->t_shirt ,
+            "profession"=>$request->profession ,
+            "profession_institute"=>$request->profession_institute ,
+            "designation"=>$request->designation ,
+            "guest"=>$request->guest ,
+            "total"=>$total ,
+            "bkash"=>$request->payment ,
+            "transaction_id"=>$request->transaction_id ,
+            "address"=>$request->address ,
+        );
+        
+            DB::table('graduateds')->where('id',$id)->update($data);
+            return redirect()->route('dashboardList.index')->with('success','successfully updated');
+       
     }
 
     /**
@@ -103,10 +122,4 @@ class DashboardController extends Controller
     }
 
 
-    public function exportCSV(){
-
-        return CSV::download(new DasboardExport,'user-record.csv');
-
-
-    }
 }
