@@ -569,7 +569,7 @@
 
 
             <div class="card-body reg_form_system">
-                <form action="{{route('dashboardList.update',$editData->id)}}" method="POST">
+                <form action="{{route('dashboardList.update',$editData->reg_id)}}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <input type="hidden" name="_method" value="PATCH">
                     <div class="row mb-3">
@@ -593,7 +593,7 @@
 
                             <select class="form-select" id="batch" name="batch" placeholder="Select Your Batch" required
                                 class="@error('batch') is-invalid @enderror" value="{{old('batch')}}">
-                                <option selected disabled> Select Your Batch</option>
+                                <option selected disabled value=""> Select Your Batch</option>
                                 <option @if($editData->batch=='no batch') selected @endif value="no batch">No batch
                                 </option>
                                 <option @if($editData->batch=='1980') selected @endif value="1980">1980</option>
@@ -683,7 +683,7 @@
                             <select class="form-select" id="blood_group" name="blood_group" required
                                 placeholder="Blood Group" class="@error('blood_group') is-invalid @enderror"
                                 value="{{old('blood_group')}}">
-                                <option selected disabled>
+                                <option selected disabled value="">
                                     Select Your Blood Group
                                 </option>
                                 <option @if($editData->blood_group=='O(+)') selected @endif value="O(+)">O(+)</option>

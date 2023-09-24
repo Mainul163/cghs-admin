@@ -68,7 +68,7 @@ class DashboardController extends Controller
 
 
 
-        $editData = DB::table('graduateds')->where('id',$id)->first();;
+        $editData = DB::table('graduateds')->where('reg_id',$id)->first();;
 
         return view('edit')->with(compact('editData'));
     }
@@ -105,7 +105,7 @@ class DashboardController extends Controller
             "address"=>$request->address ,
         );
         
-            DB::table('graduateds')->where('id',$id)->update($data);
+            DB::table('graduateds')->where('reg_id',$id)->update($data);
             return redirect()->route('dashboardList.index')->with('success','successfully updated');
        
     }

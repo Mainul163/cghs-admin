@@ -17,7 +17,7 @@ class DasboardExport implements FromCollection,WithHeadings
     }
 
     public function headings():array{
-        return ['Id','Name','Batch','Mobile_Number','Blood_Group','T_Shirt','Profession','Profession_Institute','Designation','Guest','Total','Transaction_Number','Transaction_id','Address','Date'];
+        return ['Id','Name','Batch','Mobile_Number','Blood_Group','T_Shirt','Profession','Profession_Institute','Designation','Guest','Total','Transaction_Number','Transaction_id','Status','Address','Date'];
     }
     public function getCsvSettings(): array
     {

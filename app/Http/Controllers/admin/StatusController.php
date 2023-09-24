@@ -21,7 +21,7 @@ class StatusController extends Controller
         );
 
 
-        DB::table('graduateds')->where('id',$id)->update($data);
+        DB::table('graduateds')->where('reg_id',$id)->update($data);
 
         return redirect()->back();
     }

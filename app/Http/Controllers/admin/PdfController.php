@@ -10,10 +10,10 @@ class PdfController extends Controller
 {
     //
     public function export_pdf($id){
-      
+        
 
         $graduatedData=Dashboard::find($id);
-       
+    
         $pdf = \PDF::loadView('pdf',[
           
             'graduatedData'=>$graduatedData,

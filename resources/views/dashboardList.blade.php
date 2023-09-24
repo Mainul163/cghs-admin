@@ -39,7 +39,7 @@
                                 @foreach($brotherhood as $row)
                                 <tr>
 
-                                    <td>{{$row->id+1110000}}</td>
+                                    <td>{{$row->reg_id}}</td>
                                     <td>{{$row->graduated_name}}</td>
                                     <td>{{$row->batch}}</td>
                                     <td>{{$row->mobile_number}}</td>
@@ -62,9 +62,9 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
-                                                    href="{{route('dashboardList.edit',$row->id)}}"><i
+                                                    href="{{route('dashboardList.edit',$row->reg_id)}}"><i
                                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="dropdown-item" href="{{route('status',$row->id)}}"><i
+                                                <a class="dropdown-item" href="{{route('status',$row->reg_id)}}"><i
                                                         class="fa-solid fa-person-circle-check me-1"></i> approved</a>
                                                 <a class="dropdown-item" href="{{route('pdf',$row->id)}}"><i
                                                         class="fa-regular fa-file-pdf me-1"></i>PDF</a>
